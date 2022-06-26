@@ -1,0 +1,93 @@
+﻿@model ICollection<User>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Crear Usuarios</h1>
+
+<p>
+    <a class="btn btn-danger" asp-action="Create">Crear Usuarios</a>
+</p>
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Rut
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Correo Electronico
+                </th>
+                <th>
+                    Usuario
+                </th>
+
+                <th>
+                    Telefono
+                </th>
+                <th>
+                    Cargo
+                </th>
+                <th>
+                    Turno
+                </th>
+                <th>
+                    Genero
+                </th>
+                <th>
+                    Estado Civil
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var U in Model)
+            {
+                <tr>
+                    <td>
+                        @U.Rut
+                    </td>
+                    <td>
+                        @U.Name
+                    </td>
+                    <td>
+                        @U.LastName
+                    </td>
+                    <td>
+                        @U.Email
+                    </td>
+                    <td>
+                        @U.Username
+                    </td>
+
+                    <td>
+                        @U.Telefono
+                    </td>
+                    <td>
+                        @U.IdCargo
+                    </td>
+                    <td>
+                        @U.IdTurno
+                    </td>
+                    <td>
+                        @U.IdCivil
+                    </td>
+                    <td>
+                        @U.IdGenero
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@U.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@U.Id">Detailles</a> |
+                        <a asp-action="Delete" asp-route-id="@U.Id">Borrar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
